@@ -8,7 +8,7 @@ def get_token(imc_ip):
     Authenticate and get OAuth token
     """
     url = f"https://{imc_ip}/redfish/v1/SessionService/Sessions"
-    payload = "{ \"UserName\": \"admin\", \"Password\": \"p@ssword123\"}"
+    payload = "{ \"UserName\": \"admin\", \"Password\": \"password\"}"
     headers = {'Content-Type': 'text/plain'}
     response = requests.request(
         "POST", url, headers=headers, data=payload, verify=False)
@@ -92,9 +92,7 @@ def main():
     Pull SEL logs
     Clear SEL logs 
     """
-    imc_ip = "172.16.16.25"
-    username = 'admin'
-    password = 'p@ssword123'
+    imc_ip = "x.x.x.x"
     token = get_token(imc_ip)
     count = get_sel_log_count(imc_ip, token)
     get_sel_logs(imc_ip, token, count)
