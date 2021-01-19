@@ -9,7 +9,7 @@ def get_token(imc_ip):
     """
     url = f"https://{imc_ip}/redfish/v1/SessionService/Sessions"
     payload = "{ \"UserName\": \"admin\", \"Password\": \"password\"}"
-    headers = {'Content-Type': 'text/plain'}
+    headers = {'Content-Type': 'application/json'}
     response = requests.request(
         "POST", url, headers=headers, data=payload, verify=False)
     token = response.headers['X-Auth-Token']
