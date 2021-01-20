@@ -3,12 +3,10 @@ from pprint import pprint
 import json
 
 
-def get_token(imc_ip):
+def get_token(imc_ip, user, password):
     """
     Authenticate and get OAuth token
     """
-    user = "admin"
-    password = "password" 
     url = f"https://{imc_ip}/redfish/v1/SessionService/Sessions"
     payload = { "UserName": user, "Password": password}
     headers = {'Content-Type': 'application/json'}
@@ -95,7 +93,9 @@ def main():
     Clear SEL logs 
     """
     imc_ip = "x.x.x.x"
-    token = get_token(imc_ip)
+    user = "admin"
+    password = "password" 
+    token = get_token(imc_ip, user, password)
     count = get_sel_log_count(imc_ip, token)
     get_sel_logs(imc_ip, token, count)
     #clear_sel_logs(imc_ip, token)
