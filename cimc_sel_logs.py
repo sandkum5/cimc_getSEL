@@ -80,9 +80,9 @@ def print_message(response):
         id = json_data['Members'][i]["Id"]
         message = json_data['Members'][i]["Message"]
         timestamp = json_data['Members'][i]["EventTimestamp"]
-        EntryCode = json_data['Members'][i]["EntryCode"]
-        Severity = json_data['Members'][i]["Severity"]
-        print(f"{id} : {Severity} : {timestamp} : {EntryCode} : {message}")
+        entrycode = json_data['Members'][i]["EntryCode"]
+        severity = json_data['Members'][i]["Severity"]
+        print(f"{id} : {severity} : {timestamp} : {entrycode} : {message}")
 
 
 def main():
